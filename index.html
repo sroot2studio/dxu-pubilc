@@ -38,7 +38,7 @@
             border-radius: 50px;
             font-size: 1rem;
             font-weight: 500;
-            box-shadow: 0 5px 14px rgba(75, 108, 0.3);
+            box-shadow: 0 5px 14px rgba(75, 108, 183, 0.3);
             transition: all 0.3s;
         }
         .back-btn:hover {
@@ -49,7 +49,7 @@
         .main-card {
             background: rgba(255,255,255,0.92);
             border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0.1);
             position: relative;
             overflow: hidden;
             padding: 50px 40px;
@@ -102,6 +102,7 @@
             color: inherit;
             transition: all 0.3s ease;
             border-top: 4px solid transparent;
+            cursor: pointer;
         }
         .func-card:hover {
             transform: translateY(-6px);
@@ -123,6 +124,59 @@
             font-size: 0.98rem;
             color: #666;
             line-height: 1.6;
+        }
+        /* 弹窗遮罩全局样式 */
+        .modal-mask {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.65);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            padding: 20px;
+        }
+        .modal-box {
+            background: #fff;
+            border-radius: 20px;
+            padding: 35px 30px;
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        .close-modal {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            font-size: 1.6rem;
+            color: #999;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .close-modal:hover {
+            color: #333;
+        }
+        .qr-img {
+            width: 260px;
+            max-width: 100%;
+            margin: 20px 0;
+            border-radius: 12px;
+            border: 3px solid #eee;
+        }
+        .modal-title {
+            font-size: 1.5rem;
+            color: #182848;
+            margin-bottom: 10px;
+        }
+        .modal-desc {
+            font-size: 1.05rem;
+            color: #666;
+            line-height: 1.7;
         }
         /* 联系&更新信息区域 */
         .info-block {
@@ -230,24 +284,30 @@
             .page-header h1 {
                 font-size: 1.9rem;
             }
+            .modal-box {
+                padding: 25px 20px;
+            }
+            .qr-img {
+                width: 220px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="wrap">
         <!-- 返回文章列表按钮 -->
-        <!-- <div class="back-box">
+        <!--<div class="back-box">
             <a href="https://hans.xinchen-gh2.com/word" class="back-btn">
                 <i class="fas fa-arrow-left"></i> 返回文章随笔主页
             </a>
-        </div> -->
+        </div>-->
         <div class="main-card">
             <div class="page-header">
                 <h1><i class="fas fa-globe-asia"></i> 大欣宇宙 Daxin Universe</h1>
                 <div class="divider"></div>
                 <p class="page-desc">原创幻想世界观平台，收录人物、世界地图、配套游戏、专属语言学习与创作支持</p>
             </div>
-            <!-- 六大功能入口卡片（替换为真实页面链接） -->
+            <!-- 六大功能入口卡片 -->
             <div class="func-grid">
                 <!-- 人物图鉴 -->
                 <a href="https://xinchen-gh2.com/sorry" target="_blank" class="func-card">
@@ -267,31 +327,31 @@
                     <div class="func-title">游戏下载</div>
                     <div class="func-tip">官方衍生PC/移动端配套游戏</div>
                 </a>
-                <!-- 捐赠支持 -->
-                <a href="https://xinchen-gh2.com/sorry" target="_blank" class="func-card">
+                <!-- 捐赠支持（点击弹出二维码弹窗，无跳转链接） -->
+                <div class="func-card" id="donateBtn">
                     <div class="func-icon"><i class="fas fa-heart"></i></div>
                     <div class="func-title">捐赠支持</div>
                     <div class="func-tip">助力世界观持续更新创作</div>
-                </a>
+                </div>
                 <!-- 专属语言学习 -->
                 <a href="https://xinchen-gh2.com/sorry" target="_blank" class="func-card">
                     <div class="func-icon"><i class="fas fa-language"></i></div>
                     <div class="func-title">专属语言学习</div>
                     <div class="func-tip">宇宙原创文字、词汇、语法教程</div>
                 </a>
-                <!-- 联系页面 -->
-                <a href="#mail-form" class="func-card">
+                <!-- 联系我们 -->
+                <a href="https://xinchen-gh2.com/sorry" target="_blank" class="func-card">
                     <div class="func-icon"><i class="fas fa-envelope-open-text"></i></div>
                     <div class="func-title">联系我们（此功能暂不可用）</div>
                     <div class="func-tip">反馈设定BUG、投稿原创同人</div>
                 </a>
             </div>
-            <!-- 更新时间+邮件信息区块 + 可填写发送表单 -->
+            <!-- 更新时间+邮件信息区块 -->
             <div class="info-block" id="mail-form">
                 <h3><i class="fas fa-info-circle"></i> 站点信息 / 在线发信（此功能暂不可用）</h3>
                 <div class="info-item">
                     <i class="fas fa-clock"></i>
-                    <span>页面最后更新时间：2026年08月12日</span>
+                    <span>页面最后更新时间：2026年08月14日</span>
                 </div>
                 <div class="info-item">
                     <i class="fas fa-envelope"></i>
@@ -311,23 +371,52 @@
                 </form>
             </div>
         </div>
+        <!-- 捐赠二维码弹窗（默认隐藏） -->
+        <div class="modal-mask" id="donateModal">
+            <div class="modal-box">
+                <span class="close-modal" id="closeModal"><i class="fas fa-times"></i></span>
+                <h3 class="modal-title">支持创作，扫码捐赠</h3>
+                <p class="modal-desc">微信/支付宝扫码，所有资金将用于大欣世界观持续更新</p>
+                <!-- 替换为你的二维码图片文件名 -->
+                <img src="donate-qr.png" alt="捐赠收款二维码" class="qr-img">
+                <p class="modal-desc">感谢每一份支持与喜爱！</p>
+            </div>
+        </div>
         <!-- 底部版权 -->
         <footer>
             <p>© 2026 √2工作室/Hans 大欣宇宙 原创世界观版权所有</p>
-            <p class="modify-time">页面最后修改时间：2026年08月12日</p>
-        </footer>
+            <p class="modify-time">页面最后修改时间：2026年08月14日</p>
     </div>
     <script>
-        // 拼接mailto链接，唤起系统邮件客户端自动填充标题正文
+        // 邮件发送功能
         function sendMail() {
             const title = document.getElementById('mailTitle').value.trim();
             const content = document.getElementById('mailContent').value.trim();
             const targetMail = '2584013851@qq.com';
-            // 中文url编码防止乱码
             const subject = encodeURIComponent(title);
             const body = encodeURIComponent(content);
             window.location.href = `mailto:${targetMail}?subject=${subject}&body=${body}`;
         }
+
+        // 捐赠弹窗控制
+        const donateBtn = document.getElementById('donateBtn');
+        const donateModal = document.getElementById('donateModal');
+        const closeModal = document.getElementById('closeModal');
+
+        // 打开弹窗
+        donateBtn.addEventListener('click', () => {
+            donateModal.style.display = 'flex';
+        })
+        // 关闭弹窗：叉号
+        closeModal.addEventListener('click', () => {
+            donateModal.style.display = 'none';
+        })
+        // 点击遮罩空白处关闭
+        donateModal.addEventListener('click', (e) => {
+            if(e.target === donateModal) {
+                donateModal.style.display = 'none';
+            }
+        })
     </script>
 </body>
 </html>
