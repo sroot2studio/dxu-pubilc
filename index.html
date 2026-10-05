@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>大欣宇宙 | Daxin Universe</title>
+    <title>大欣宇宙 | Daxin Universe · 世界重构五周年纪念</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -22,6 +22,23 @@
             max-width: 1000px;
             margin: 0 auto;
         }
+
+        /* ========== 新增：五周年纪念横幅 ========== */
+        .anniversary-banner{
+            background: linear-gradient(90deg,#c8102e,#e63946,#c8102e);
+            color:#fff;
+            text-align:center;
+            padding:12px 16px;
+            border-radius:14px;
+            margin-bottom:24px;
+            font-size:1.15rem;
+            font-weight:600;
+            box-shadow:0 6px 18px rgba(200,16,46,0.28);
+        }
+        .anniversary-banner i{
+            margin:0 6px;
+        }
+
         /* 返回顶部导航 */
         .back-box {
             margin-bottom: 30px;
@@ -54,6 +71,7 @@
             overflow: hidden;
             padding: 50px 40px;
         }
+        /* 顶部渐变条增加周年红色片段 */
         .main-card::before {
             content: '';
             position: absolute;
@@ -61,8 +79,23 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, #4b6cb7, #182848);
+            background: linear-gradient(90deg, #c8102e, #4b6cb7, #182848, #c8102e);
         }
+
+        /* ========== 新增：周年角标装饰 ========== */
+        .anniversary-corner{
+            position:absolute;
+            top:22px;
+            right:-55px;
+            background:#c8102e;
+            color:#fff;
+            font-size:0.9rem;
+            font-weight:bold;
+            padding:6px 60px;
+            transform:rotate(40deg);
+            box-shadow:0 3px 8px rgba(0,0,0,0.15);
+        }
+
         /* 头部标题 */
         .page-header {
             text-align: center;
@@ -72,6 +105,16 @@
             font-size: 2.8rem;
             color: #182848;
             margin-bottom: 16px;
+        }
+        .anniversary-tag{
+            display:inline-block;
+            background:#c8102e;
+            color:#fff;
+            font-size:1rem;
+            padding:4px 12px;
+            border-radius:30px;
+            margin-left:12px;
+            vertical-align:middle;
         }
         .divider {
             width: 160px;
@@ -103,6 +146,7 @@
             transition: all 0.3s ease;
             border-top: 4px solid transparent;
             cursor: pointer;
+            position:relative;
         }
         .func-card:hover {
             transform: translateY(-6px);
@@ -273,6 +317,13 @@
             .page-header h1 {
                 font-size: 2.3rem;
             }
+            .anniversary-corner{
+                font-size:0.75rem;
+                right:-60px;
+            }
+            .anniversary-banner{
+                font-size:1rem;
+            }
         }
         @media (max-width: 520px) {
             .func-grid {
@@ -290,11 +341,23 @@
             .qr-img {
                 width: 220px;
             }
+            .anniversary-corner{
+                display:none;
+            }
+            .anniversary-tag{
+                font-size:0.8rem;
+                padding:3px 8px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="wrap">
+        <!-- 五周年顶部纪念横幅【新增】 -->
+        <div class="anniversary-banner">
+            <i class="fas fa‑gift"></i>热烈庆祝 · 大欣宇宙 世界重构五周年纪念<i class="fas fa‑celebration"></i>
+        </div>
+
         <!-- 返回文章列表按钮 -->
         <!--<div class="back-box">
             <a href="https://hans.xinchen-gh2.com/word" class="back-btn">
@@ -302,17 +365,22 @@
             </a>
         </div>-->
         <div class="main-card">
+            <!-- 右上角周年斜角标签【新增】 -->
+            <div class="anniversary-corner">五周年纪念</div>
+
             <div class="page-header">
-                <h1><i class="fas fa-globe-asia"></i> 大欣宇宙 Daxin Universe</h1>
+                <h1><i class="fas fa-globe-asia"></i> 大欣宇宙 Daxin Universe
+                    <span class="anniversary-tag">五周年纪念</span>
+                </h1>
                 <div class="divider"></div>
                 <p class="page-desc">原创幻想世界观平台，收录人物、世界地图、配套游戏、专属语言学习与创作支持</p>
             </div>
             <!-- 六大功能入口卡片 -->
             <div class="func-grid">
-                <!-- 人物图鉴 -->
-                <a href="https://xinchen-gh2.com/sorry" target="_blank" class="func-card">
+                <!-- 人物与历史 -->
+                <a href="https://dxu.xinchen-gh2.com/history" target="_blank" class="func-card">
                     <div class="func-icon"><i class="fas fa-user-group"></i></div>
-                    <div class="func-title">人物图鉴</div>
+                    <div class="func-title">人物与历史</div>
                     <div class="func-tip">全部角色立绘、生平设定、关系图谱</div>
                 </a>
                 <!-- 世界地图 -->
@@ -331,7 +399,7 @@
                 <div class="func-card" id="donateBtn">
                     <div class="func-icon"><i class="fas fa-heart"></i></div>
                     <div class="func-title">捐赠支持</div>
-                    <div class="func-tip">助力世界观持续更新创作</div>
+                    <div class="func-tip">助力世界观持续更新创作 · 五周年特别阶段</div>
                 </div>
                 <!-- 专属语言学习 -->
                 <a href="https://xinchen-gh2.com/sorry" target="_blank" class="func-card">
@@ -351,7 +419,7 @@
                 <h3><i class="fas fa-info-circle"></i> 站点信息 / 在线发信（此功能暂不可用）</h3>
                 <div class="info-item">
                     <i class="fas fa-clock"></i>
-                    <span>页面最后更新时间：2026年08月14日</span>
+                    <span>页面最后更新时间：2026年10月05日 · 世界重构五周年特别版</span>
                 </div>
                 <div class="info-item">
                     <i class="fas fa-envelope"></i>
@@ -363,8 +431,8 @@
                 </div>
                 <!-- 在线邮件填写表单 -->
                 <form class="mail-form" id="mailForm">
-                    <input class="form-input" id="mailTitle" placeholder="邮件标题（例如：设定反馈/同人投稿）" required>
-                    <textarea class="form-textarea" id="mailContent" placeholder="请输入你的留言、反馈或投稿内容..." required></textarea>
+                    <input class="form-input" id="mailTitle" placeholder="邮件标题（例如：设定反馈/同人投稿｜五周年相关）" required>
+                    <textarea class="form-textarea" id="mailContent" placeholder="请输入你的留言、反馈或投稿内容，欢迎分享你对五周年的想法..." required></textarea>
                     <button type="button" class="submit-btn" onclick="sendMail()">
                         <i class="fas fa-paper-plane"></i> 一键发送邮件
                     </button>
@@ -375,17 +443,17 @@
         <div class="modal-mask" id="donateModal">
             <div class="modal-box">
                 <span class="close-modal" id="closeModal"><i class="fas fa-times"></i></span>
-                <h3 class="modal-title">支持创作，扫码捐赠</h3>
+                <h3 class="modal-title">🎉世界重构五周年｜支持创作，扫码捐赠</h3>
                 <p class="modal-desc">微信/支付宝扫码，所有资金将用于大欣世界观持续更新</p>
                 <!-- 替换为你的二维码图片文件名 -->
                 <img src="donate-qr.png" alt="捐赠收款二维码" class="qr-img">
-                <p class="modal-desc">感谢每一份支持与喜爱！</p>
+                <p class="modal-desc">感谢每一份支持与喜爱，共度五周年！</p>
             </div>
         </div>
         <!-- 底部版权 -->
         <footer>
-            <p>© 2026 √2工作室/Hans 大欣宇宙 原创世界观版权所有</p>
-            <p class="modify-time">页面最后修改时间：2026年08月14日</p>
+            <p>© 2026 √2工作室/Hans 大欣宇宙 原创世界观版权所有 · 世界重构五周年纪念版本</p>
+            <p class="modify-time">页面最后修改时间：2026年10月05日</p>
     </div>
     <script>
         // 邮件发送功能
@@ -397,12 +465,10 @@
             const body = encodeURIComponent(content);
             window.location.href = `mailto:${targetMail}?subject=${subject}&body=${body}`;
         }
-
         // 捐赠弹窗控制
         const donateBtn = document.getElementById('donateBtn');
         const donateModal = document.getElementById('donateModal');
         const closeModal = document.getElementById('closeModal');
-
         // 打开弹窗
         donateBtn.addEventListener('click', () => {
             donateModal.style.display = 'flex';
